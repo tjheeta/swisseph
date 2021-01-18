@@ -27,10 +27,10 @@ SWEOBJ = swedate.o swehouse.o swejpl.o swemmoon.o swemplan.o swepcalc.o sweph.o\
 	swepdate.o swephlib.o swecl.o swehel.o
 
 swetest: swetest.o libswe.a
-	$(CC) $(OP) -o swetest swetest.o -L. -lswe -lm
+	$(CC) $(OP) -o swetest swetest.o -L. -lswe -lm -ldl
 
 swemini: swemini.o libswe.a
-	$(CC) $(OP) -o swemini swemini.o -L. -lswe -lm
+	$(CC) $(OP) -o swemini swemini.o -L. -lswe -lm -ldl
 
 # create an archive and a dynamic link libary fro SwissEph
 # a user of this library will inlcude swephexp.h  and link with -lswe
@@ -53,7 +53,7 @@ swehouse.o: swephexp.h sweodef.h swedll.h swephlib.h swehouse.h
 swejpl.o: swephexp.h sweodef.h swedll.h sweph.h swejpl.h
 swemini.o: swephexp.h sweodef.h swedll.h
 swemmoon.o: swephexp.h sweodef.h swedll.h sweph.h swephlib.h
-swemplan.o: swephexp.h sweodef.h swedll.h sweph.h swephlib.h swemptab.c
+swemplan.o: swephexp.h sweodef.h swedll.h sweph.h swephlib.h swemptab.h
 swepcalc.o: swepcalc.h swephexp.h sweodef.h swedll.h
 sweph.o: swejpl.h sweodef.h swephexp.h swedll.h sweph.h swephlib.h
 swephlib.o: swephexp.h sweodef.h swedll.h sweph.h swephlib.h
